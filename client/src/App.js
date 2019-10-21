@@ -5,18 +5,20 @@ import Home from "./Home";
 import About from "./About";
 import Robots from "./components/Robots";
 
-function App() {
-  return (
-    <React.Fragment>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/robots" component={Robots} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </Router>
-    </React.Fragment>
-  );
+class App extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/robots" component={Robots} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </Router>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
