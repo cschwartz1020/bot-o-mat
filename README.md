@@ -1,11 +1,35 @@
+# Dependencies
+
+npm/npx
+npm i express concurrently
+npm i nodemon --save-dev
+sudo npm i -g create-react-app
+
+# Concurrently
+
+allows us to run both React front-end and express server simultaneously
+from bot-o-mot-cschwartz1020: npm run dev
+optimal way to run web-app
+
+# Front-End
+
+React
+Runs on localhost:5000
+To run just front-end (from bot-o-mot-cschwartz1020): npm run client
+
+# Back-End Server
+
+Express
+Runs on localhost:3000
+To run just back-end server (from bot-o-mot-cschwartz1020): npm start
+
 # BOT-O-MAT
+
 Use any language to complete this challenge. The implementation is up to you: it can be a command-line application or have a graphical interface.
 
-Your application should collect a name and robot type from the types we list below. For each, it should create a Robot of the type the user chooses, e.g. Larry, Bipedal. 
+Your application should collect a name and robot type from the types we list below. For each, it should create a Robot of the type the user chooses, e.g. Larry, Bipedal.
 
-Given the list of tasks below, your application should then assign the Robot a set of five tasks, all of which complete after a duration that we show in milliseconds. 
-
-
+Given the list of tasks below, your application should then assign the Robot a set of five tasks, all of which complete after a duration that we show in milliseconds.
 
 - Collect a name and robot type from user.
 - Instantiate a Robot of the type provided by the user with the name provided by the user
@@ -13,9 +37,11 @@ Given the list of tasks below, your application should then assign the Robot a s
 - Set up methods on Robot to complete tasks from the provided list
 
 ## Robot
+
 Robot completes tasks and removes them from the list when they are done (i.e. enough time has passed since starting the task).
 
 ## Tasks
+
 Tasks have a description and an estimated time to complete.
 
 ```
@@ -55,8 +81,9 @@ Tasks have a description and an estimated time to complete.
 ```
 
 ## Types
+
 ```
-{ 
+{
   UNIPEDAL: 'Unipedal',
   BIPEDAL: 'Bipedal',
   QUADRUPEDAL: 'Quadrupedal',
@@ -67,13 +94,15 @@ Tasks have a description and an estimated time to complete.
 ```
 
 ## Features to add once the core functionality is complete
+
 Be creative and have fun! Use this list or create your own features.
+
 - Allow users to create multiple robots at one time
 - Create a leaderboard for tasks completed by each Robot
 - Create tasks specific for each robot type, this could work in conjunction with the leaderboard. For e.g. robots that are assigned tasks that their type can’t perform won’t get “credit” for finishing the task.
 - Add persistance for tasks, bots and leaderboard stats
 
-
 ## Authors
+
 - Scott Hoffman <https://github.com/scottshane>
 - Olivia Osby <https://github.com/oosby>
