@@ -1,8 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Robots from "./components/Robots";
 
 function App() {
-  return <div className="App">BOT-O-MAT</div>;
+  return (
+    <React.Fragment>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/robots" component={Robots} />
+          <Route path="/about" component={About} />
+        </Switch>
+      </Router>
+    </React.Fragment>
+  );
 }
 
 export default App;

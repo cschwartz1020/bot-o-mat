@@ -1,27 +1,42 @@
 # Dependencies
 
-npm/npx
-npm i express concurrently
-npm i nodemon --save-dev
-sudo npm i -g create-react-app
+npm/npx (npx comes with npm)
+
+concurrently; npm i express concurrently
+
+nodemon; npm i nodemon --save-dev
+
+create react app; npm i create-react-app
+
+react-router-dom; npm i react-router-dom
+
+nodemon; npm install --save-dev nodemon
+
+express.js; npm install express --save
 
 # Concurrently
 
 allows us to run both React front-end and express server simultaneously
-from bot-o-mot-cschwartz1020: npm run dev
-optimal way to run web-app
+
+from root directory: npm run dev
+
+runs entire application with one command
 
 # Front-End
 
 React
+
 Runs on localhost:5000
-To run just front-end (from bot-o-mot-cschwartz1020): npm run client
+
+To run front-end (from root directory): npm run client
 
 # Back-End Server
 
 Express
+
 Runs on localhost:3000
-To run just back-end server (from bot-o-mot-cschwartz1020): npm start
+
+To run back-end (from root directory): npm start
 
 # BOT-O-MAT
 
