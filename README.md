@@ -14,13 +14,15 @@ nodemon; npm install --save-dev nodemon
 
 express.js; npm install express --save
 
-# Concurrently
+bootstrap; npm install react-bootstrap bootstrap
 
-allows us to run both React front-end and express server simultaneously
+npm install --save styled-components
+
+# To run entire application
 
 from root directory: npm run dev
 
-runs entire application with one command
+Concurrently dependency allows us to run both React front-end and express server simultaneously with one command
 
 # Front-End
 
