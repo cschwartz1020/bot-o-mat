@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Tasks from "./Tasks";
 
 const Styles = styled.div`
   color: #EDEDED;

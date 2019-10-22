@@ -4,6 +4,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import HappyRobot from "../images/HappyRobot.jpg";
 import MyRobot from "./MyRobot";
+import Tasks from "./Tasks";
 
 const Styles = styled.div`
   .jumbotron {
@@ -65,14 +66,20 @@ class MyRobots extends Component {
     if (type.length !== 0) {
       console.log("test");
       return (
-        <div>
+        <div key={type.length}>
           <h4 className="h">
             <u>{type[0].type}</u>
           </h4>
           {type.map(robot => (
-            <div className="rows">
-              <div className="row">
+            <div key={robot.id + 1000} className="rows">
+              <div key={robot.id + 100} className="row">
                 <MyRobot key={robot.id} name={robot.name} type={robot.type} />
+                <Tasks
+                  key={robot.id + 10}
+                  id={robot.id}
+                  name={robot.name}
+                  type={robot.type}
+                />
               </div>
             </div>
           ))}
