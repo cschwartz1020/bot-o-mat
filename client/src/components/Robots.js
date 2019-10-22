@@ -3,6 +3,7 @@ import RobotsLandscape from "../images/RobotsLandscape.jpg";
 import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
+import Robot from "./Robot";
 
 const Styles = styled.div`
   .jumbotron {
@@ -16,24 +17,45 @@ const Styles = styled.div`
     color: #808080;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
+  .robot {
+    color: #a8a8a8;
+  }
 `;
 
 class Robots extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       types: []
     };
   }
+  async componentDidMount() {
+    fetch("/api/types")
+      .then(response => response.json())
+      .then(json =>
+        json.forEach(bot => {
+          JSON.stringify(bot);
+          let botType = bot;
+          var joined = this.state.types.concat(botType);
+          this.setState({
+            types: joined
+          });
+        })
+      );
+  }
 
   render() {
-    console.log(this.state.types);
     return (
       <React.Fragment>
         <Styles>
           <Jumbotron>
             <Container>
               <h1 className="header">Select a Robot!</h1>
+              <ul>
+                {this.state.types.map(type => (
+                  <Robot key={type} type={type} />
+                ))}
+              </ul>
             </Container>
           </Jumbotron>
         </Styles>
