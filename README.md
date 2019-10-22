@@ -18,9 +18,9 @@ bootstrap; npm install react-bootstrap bootstrap
 
 styled-components; npm install --save styled-components
 
-react-toastify; npm i react-toastify
+npm i react-sweet-progress
 
-react-timeout; npm i react-timeout
+react-toastify; npm i react-toastify
 
 # To run entire application
 

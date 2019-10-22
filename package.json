@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-router-dom": "^5.1.2",
+    "react-sweet-progress": "^1.1.2",
     "react-timeout": "^1.2.0",
     "react-toastify": "^5.4.0",
     "styled-components": "^4.4.0"

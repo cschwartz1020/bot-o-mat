@@ -13,6 +13,7 @@ const Styles = styled.div`
     overflow-y: auto;
   }
 `;
+const tasksChosen = [];
 class Tasks extends Component {
   constructor(props) {
     super(props);
@@ -20,8 +21,9 @@ class Tasks extends Component {
     this.state = {
       show: false,
       tasks: [],
-      taskChosen: ""
+      tasksChosen: []
     };
+    this.onSelectTask = this.onSelectTask.bind(this);
   }
 
   async componentDidMount() {
@@ -38,6 +40,10 @@ class Tasks extends Component {
           this.setState({ tasks: joined });
         })
       );
+  }
+
+  onSelectTask(description) {
+    tasksChosen.push(description);
   }
 
   render() {
@@ -57,7 +63,6 @@ class Tasks extends Component {
               <ul>
                 {this.state.tasks.map(task => (
                   <h4 key={task.description}>
-                    {task.description} in {task.eta} milliseconds
                     <Task
                       key={this.props.id}
                       name={this.props.name}

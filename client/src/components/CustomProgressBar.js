@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import { Progress } from "react-sweet-progress";
+import "react-sweet-progress/lib/style.css";
 
 class CustomProgressBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      now: 0
+      percent: 0
     };
   }
 
   componentDidMount() {
     var interval = setInterval(
       function() {
-        if (this.state.now >= 100) clearInterval(interval);
-        this.setState({ now: this.state.now + 1 });
+        if (this.state.percent >= 100) clearInterval(interval);
+        this.setState({ percent: this.state.percent + 1 });
       }.bind(this),
       this.props.eta / 100
     );
@@ -22,7 +24,7 @@ class CustomProgressBar extends Component {
   render() {
     return (
       <div>
-        <ProgressBar now={this.state.now}></ProgressBar>
+        <Progress type="circle" percent={this.state.percent} />
       </div>
     );
   }
