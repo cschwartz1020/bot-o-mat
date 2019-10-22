@@ -20,6 +20,8 @@ styled-components; npm install --save styled-components
 
 react-toastify; npm i react-toastify
 
+react-timeout; npm i react-timeout
+
 # To run entire application
 
 from root directory: npm run dev
