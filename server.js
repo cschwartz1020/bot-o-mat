@@ -61,6 +61,22 @@ app.get("/api/types", (req, res) => {
   res.json(types);
 });
 
+const myRobots = [];
+
+app.get("/api/myrobots", (req, res) => {
+  res.send(myRobots);
+});
+
+app.post("/api/myrobots", (req, res) => {
+  const robot = {
+    id: myRobots.length + 1,
+    name: req.body.name,
+    type: req.body.type
+  };
+  myRobots.push(robot);
+  res.send(robot);
+});
+
 const port = 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

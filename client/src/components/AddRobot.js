@@ -30,6 +30,23 @@ class AddRobot extends Component {
     });
   }
 
+  async postRobot(event, type) {
+    event.preventDefault();
+    this.getToast(event, type);
+    const robot = {
+      type: type,
+      name: this.state.inputValue
+    };
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    const options = {
+      method: "POST",
+      headers,
+      body: JSON.stringify(robot)
+    };
+    await fetch("/api/myrobots", options);
+  }
+
   render() {
     return (
       <form className="form-inline">
@@ -47,7 +64,7 @@ class AddRobot extends Component {
         </div>
         <button
           onClick={event => {
-            this.getToast(event, this.props.type);
+            this.postRobot(event, this.props.type);
           }}
           type="submit"
           className="btn btn-primary mb-2"
