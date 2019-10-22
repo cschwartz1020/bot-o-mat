@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import AddRobot from "./AddRobot";
 
 const Styles = styled.div`
   color: #a8a8a8;
@@ -14,7 +15,10 @@ class Robot extends Component {
   render() {
     return (
       <Styles>
-        <div>{this.props.type}</div>
+        <div>
+          {this.props.type}
+          <AddRobot type={this.props.type} />
+        </div>
       </Styles>
     );
   }

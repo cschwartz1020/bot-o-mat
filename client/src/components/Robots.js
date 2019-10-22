@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Robot from "./Robot";
+import "react-toastify/dist/ReactToastify.css";
 
 const Styles = styled.div`
   .jumbotron {

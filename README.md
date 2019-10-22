@@ -16,7 +16,9 @@ express.js; npm install express --save
 
 bootstrap; npm install react-bootstrap bootstrap
 
-npm install --save styled-components
+styled-components; npm install --save styled-components
+
+react-toastify; npm i react-toastify
 
 # To run entire application
 
