@@ -5,6 +5,7 @@ import Home from "./Home";
 import About from "./About";
 import Robots from "./components/Robots";
 import NavigationBar from "./components/NavigationBar";
+import MyRobots from "./components/MyRobots";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/robots" component={Robots} />
+            <Route path="/myrobots" component={MyRobots} />
             <Route path="/about" component={About} />
           </Switch>
         </Router>
