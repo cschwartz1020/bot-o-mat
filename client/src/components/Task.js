@@ -78,7 +78,7 @@ class Task extends Component {
       headers,
       body: JSON.stringify(data)
     };
-    await fetch(`/api/myrobots:${this.props.id}`);
+    await fetch(`/api/myrobots:${this.props.id}`, options);
   }
   render() {
     return (
