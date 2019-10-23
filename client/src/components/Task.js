@@ -26,10 +26,8 @@ class Task extends Component {
     this.state = {
       description: "",
       eta: 0,
-      showBar: false,
-      showTask: true,
-      showDescription: true,
-      percent: 0
+      percent: 0,
+      renderProgress: true
     };
     this.handleTaskClick = this.handleTaskClick.bind(this);
   }
@@ -40,9 +38,7 @@ class Task extends Component {
 
   handleTaskClick = event => {
     event.preventDefault();
-    this.setState({ showDescription: false });
     this.putTask(event);
-    this.setState({ showBar: true, showTask: false });
     let firstWord = this.state.description.substring(
       0,
       this.state.description.indexOf(" ")
@@ -64,12 +60,17 @@ class Task extends Component {
           {this.props.name} is {description}
         </div>
         <div align="center">
-          <CustomProgressBar className="progress" eta={this.state.eta} />
+          <CustomProgressBar
+            visibility="hidden"
+            className="progress"
+            eta={this.state.eta}
+          />
+          }
         </div>
       </Styles>,
       {
         hideProgressBar: true,
-        autoClose: this.state.eta + 1000,
+        autoClose: this.props.eta + 1000,
         position: toast.POSITION.TOP_CENTER
       }
     );

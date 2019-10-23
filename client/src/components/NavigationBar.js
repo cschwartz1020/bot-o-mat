@@ -37,6 +37,9 @@ class NavigationBar extends Component {
                 <Nav.Link href="/myrobots">My Robots</Nav.Link>
               </Nav.Item>
               <Nav.Item>
+                <Nav.Link href="/leaderboard">Leaderboard</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
                 <Nav.Link href="/about">About</Nav.Link>
               </Nav.Item>
             </Nav>

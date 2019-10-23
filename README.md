@@ -24,6 +24,8 @@ react-toastify; npm i react-toastify
 
 html-id; npm i react-html-id
 
+npm install react-bootstrap-table --save
+
 # To run entire application
 
 from root directory: npm run dev

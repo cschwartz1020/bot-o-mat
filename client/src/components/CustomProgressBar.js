@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
+import ReactDOM from "react-dom";
 
 class CustomProgressBar extends Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class CustomProgressBar extends Component {
   }
 
   componentDidMount() {
+    this.loadProgress();
+  }
+
+  loadProgress() {
     var interval = setInterval(
       function() {
         if (this.state.percent >= 100) clearInterval(interval);
@@ -21,6 +26,9 @@ class CustomProgressBar extends Component {
     );
   }
 
+  componentWillUnmount() {
+    if (this.loadProgress) clearInterval(this.loadProgress());
+  }
   render() {
     return (
       <div>

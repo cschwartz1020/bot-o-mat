@@ -39,23 +39,15 @@ class Tasks extends Component {
       .then(json =>
         json.forEach(task => {
           JSON.stringify(task);
-          if (!this.props.completedTasks.includes(task.description)) {
-            let job = {
-              description: task.description,
-              eta: task.eta
-            };
-            var joined = this.state.tasks.concat(job);
-            this.setState({ tasks: joined });
-          }
+          let job = {
+            description: task.description,
+            eta: task.eta
+          };
+          var joined = this.state.tasks.concat(job);
+          this.setState({ tasks: joined });
         })
       );
   }
-
-  deleteTask = (index, e) => {
-    const tasks = Object.assign([], this.state.tasks);
-    tasks.splice(index, 1);
-    this.setState({ tasks: tasks });
-  };
 
   render() {
     return (
@@ -83,7 +75,6 @@ class Tasks extends Component {
                       eta={task.eta}
                       id={this.props.id}
                       number={index}
-                      delEvent={this.deleteTask.bind(this, index)}
                     />
                   </h4>
                 ))}
