@@ -64,7 +64,7 @@ class Task extends Component {
     );
   }
 
-  async postTask(event) {
+  async putTask(event) {
     event.preventDefault();
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
