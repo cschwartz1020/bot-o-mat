@@ -59,7 +59,6 @@ class MyRobots extends Component {
           this.setState({ temp: arr });
         });
       });
-    console.log(this.state.robots);
   }
 
   makeRenderDecision(type) {

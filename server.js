@@ -67,13 +67,19 @@ app.get("/api/myrobots", (req, res) => {
   res.send(myRobots);
 });
 
+app.get("/api/myrobots/:id", (req, res) => {
+  const robot = myRobots.find(bot => bot.id === parseInt(req.params.id));
+  if (!robot) res.status(404).send("Robot does not exist");
+  res.send(myRobots);
+});
+
 app.post("/api/myrobots", (req, res) => {
   const robot = {
-    id: myRobots.length + 1,
     name: req.body.name,
     type: req.body.type,
     completedTasks: [],
-    totalTime: 0
+    totalTime: 0,
+    id: req.body.id
   };
   myRobots.push(robot);
   res.send(robot);

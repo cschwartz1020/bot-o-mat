@@ -31,6 +31,7 @@ class Task extends Component {
 
   handleTaskClick(event) {
     event.preventDefault();
+    this.putTask(event);
 
     this.setState({ showBar: true, showTask: false });
     let firstWord = this.state.description.substring(
@@ -78,7 +79,7 @@ class Task extends Component {
       headers,
       body: JSON.stringify(data)
     };
-    await fetch(`/api/myrobots:${this.props.id}`, options);
+    await fetch(`/api/myrobots/${data.id}`, options);
   }
   render() {
     return (

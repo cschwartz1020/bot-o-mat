@@ -24,6 +24,7 @@ const Styles = styled.div`
 `;
 
 class Robots extends Component {
+  static count = 0;
   constructor(props) {
     super(props);
     this.state = {
