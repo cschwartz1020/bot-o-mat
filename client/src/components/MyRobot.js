@@ -3,9 +3,8 @@ import styled from "styled-components";
 import Tasks from "./Tasks";
 
 const Styles = styled.div`
-  color: #EDEDED;
+  color: #ededed;
   font: courier new;
-}
 `;
 
 class MyRobot extends Component {
@@ -14,7 +13,24 @@ class MyRobot extends Component {
   }
 
   render() {
-    return <Styles key={this.props.id}>{this.props.name}</Styles>;
+    return (
+      <Styles key={this.props.id}>
+        <div className="row">
+          {this.props.name}
+          &nbsp; &nbsp; &nbsp;
+          <Tasks
+            className="tasks"
+            completedTasks={this.props.completedTasks}
+            key={this.props.id}
+            id={this.props.id}
+            name={this.props.name}
+            type={this.props.type}
+          />
+          <br />
+          <br />
+        </div>
+      </Styles>
+    );
   }
 }
 

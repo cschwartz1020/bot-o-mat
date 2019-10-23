@@ -5,9 +5,17 @@ import CustomProgressBar from "./CustomProgressBar";
 import styled from "styled-components";
 
 const Styles = styled.div`
-  #progress {
+  justify-content: center;
+  .progress {
     display: flex;
     justify-content: center;
+  }
+
+  .task {
+    color: #b0b0b0;
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
   }
 `;
 
@@ -23,16 +31,17 @@ class Task extends Component {
       showDescription: true,
       percent: 0
     };
+    this.handleTaskClick = this.handleTaskClick.bind(this);
   }
 
   componentDidMount() {
     this.setState({ eta: this.props.eta, description: this.props.description });
   }
 
-  handleTaskClick(event) {
+  handleTaskClick = event => {
     event.preventDefault();
+    this.setState({ showDescription: false });
     this.putTask(event);
-
     this.setState({ showBar: true, showTask: false });
     let firstWord = this.state.description.substring(
       0,
@@ -48,6 +57,7 @@ class Task extends Component {
       description =
         firstWord + "ing" + this.state.description.substring(firstWord.length);
     }
+
     return toast(
       <Styles>
         <div align="center">
@@ -63,9 +73,9 @@ class Task extends Component {
         position: toast.POSITION.TOP_CENTER
       }
     );
-  }
+  };
 
-  async putTask(event) {
+  putTask(event) {
     event.preventDefault();
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -79,17 +89,23 @@ class Task extends Component {
       headers,
       body: JSON.stringify(data)
     };
-    await fetch(`/api/myrobots/${data.id}`, options);
+    fetch(`/api/myrobots/${data.id}`, options);
   }
+
   render() {
     return (
-      <div>
-        {this.props.description} in {this.props.eta} milliseconds
-        <Button onClick={event => this.handleTaskClick(event)}>
-          DO TASK !
-        </Button>
-        <ToastContainer />
-      </div>
+      <Styles>
+        <li key={this.props.index} className="task">
+          <Button
+            className="btn btn-primary btn-sm"
+            text-align="center"
+            onClick={event => this.handleTaskClick(event)}
+          >
+            {this.props.description} in {this.props.eta} milliseconds
+          </Button>
+          <ToastContainer />
+        </li>
+      </Styles>
     );
   }
 }

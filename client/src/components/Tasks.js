@@ -3,17 +3,25 @@ import Modal from "react-bootstrap/Modal";
 import styled from "styled-components";
 import Task from "./Task";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 const Styles = styled.div`
   .modal-dialog {
     overflow-y: initial !important;
+    overflow-x: initial;
   }
   .modal-body {
     height: 250px;
     overflow-y: auto;
   }
+  .task {
+    color: #b0b0b0;
+  }
+
+  .ul {
+    list-style-type: decimal;
+  }
 `;
-const tasksChosen = [];
 class Tasks extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +31,6 @@ class Tasks extends Component {
       tasks: [],
       tasksChosen: []
     };
-    this.onSelectTask = this.onSelectTask.bind(this);
   }
 
   async componentDidMount() {
@@ -32,19 +39,23 @@ class Tasks extends Component {
       .then(json =>
         json.forEach(task => {
           JSON.stringify(task);
-          let job = {
-            description: task.description,
-            eta: task.eta
-          };
-          var joined = this.state.tasks.concat(job);
-          this.setState({ tasks: joined });
+          if (!this.props.completedTasks.includes(task.description)) {
+            let job = {
+              description: task.description,
+              eta: task.eta
+            };
+            var joined = this.state.tasks.concat(job);
+            this.setState({ tasks: joined });
+          }
         })
       );
   }
 
-  onSelectTask(description) {
-    tasksChosen.push(description);
-  }
+  deleteTask = (index, e) => {
+    const tasks = Object.assign([], this.state.tasks);
+    tasks.splice(index, 1);
+    this.setState({ tasks: tasks });
+  };
 
   render() {
     return (
@@ -55,30 +66,38 @@ class Tasks extends Component {
               closeButton
               onClick={() => this.setState({ show: false })}
             >
-              <Modal.Title key={this.props.id}>
+              <Modal.Title className="task" key={this.props.id}>
                 Tasks for {this.props.name} ({this.props.type})
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ul>
-                {this.state.tasks.map(task => (
+              <ul className="ul">
+                {this.state.tasks.map((task, index) => (
                   <h4 key={task.description}>
                     <Task
+                      className="task"
                       key={this.props.id}
                       name={this.props.name}
                       type={this.props.type}
                       description={task.description}
                       eta={task.eta}
                       id={this.props.id}
+                      number={index}
+                      delEvent={this.deleteTask.bind(this, index)}
                     />
                   </h4>
                 ))}
               </ul>
             </Modal.Body>
-            <Modal.Footer>Pick one task for {this.props.name}!</Modal.Footer>
+            <Modal.Footer className="task">
+              Pick a task for {this.props.name}!
+            </Modal.Footer>
           </Modal.Dialog>
         ) : (
-          <Button onClick={() => this.setState({ show: true })}>
+          <Button
+            className="btn btn-primary btn-sm"
+            onClick={() => this.setState({ show: true })}
+          >
             See Tasks!
           </Button>
         )}

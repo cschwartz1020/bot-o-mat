@@ -22,6 +22,8 @@ npm i react-sweet-progress
 
 react-toastify; npm i react-toastify
 
+html-id; npm i react-html-id
+
 # To run entire application
 
 from root directory: npm run dev
