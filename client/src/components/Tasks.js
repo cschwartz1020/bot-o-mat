@@ -69,6 +69,7 @@ class Tasks extends Component {
                       type={this.props.type}
                       description={task.description}
                       eta={task.eta}
+                      id={this.props.id}
                     />
                   </h4>
                 ))}

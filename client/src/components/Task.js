@@ -26,26 +26,26 @@ class Task extends Component {
   }
 
   componentDidMount() {
-    this.setState({ eta: this.props.eta });
+    this.setState({ eta: this.props.eta, description: this.props.description });
   }
 
   handleTaskClick(event) {
     event.preventDefault();
 
     this.setState({ showBar: true, showTask: false });
-    let firstWord = this.props.description.substring(
+    let firstWord = this.state.description.substring(
       0,
-      this.props.description.indexOf(" ")
+      this.state.description.indexOf(" ")
     );
     let description = "";
     if (firstWord.charAt(firstWord.length - 1) === "e") {
       description =
         firstWord.substring(0, firstWord.indexOf("e")) +
         "ing" +
-        this.props.description.substring(firstWord.length);
+        this.state.description.substring(firstWord.length);
     } else {
       description =
-        firstWord + "ing" + this.props.description.substring(firstWord.length);
+        firstWord + "ing" + this.state.description.substring(firstWord.length);
     }
     return toast(
       <Styles>
@@ -62,6 +62,23 @@ class Task extends Component {
         position: toast.POSITION.TOP_CENTER
       }
     );
+  }
+
+  async postTask(event) {
+    event.preventDefault();
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    let data = {
+      task: this.state.description,
+      time: this.state.eta,
+      id: this.props.id
+    };
+    const options = {
+      method: "PUT",
+      headers,
+      body: JSON.stringify(data)
+    };
+    await fetch(`/api/myrobots:${this.props.id}`);
   }
   render() {
     return (
