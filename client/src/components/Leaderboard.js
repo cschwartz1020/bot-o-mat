@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
+import styled from "styled-components";
+
+const Styles = styled.div`
+  .table {
+    table-layout: fixed;
+  }
+`;
 
 class Leaderboard extends Component {
   constructor() {
     super();
     this.state = {
       empty: true,
-      robots: []
+      data: []
     };
   }
 
@@ -17,34 +24,44 @@ class Leaderboard extends Component {
         if (json.length > 0) {
           this.setState({ empty: false });
         }
+        let arr = [];
         json.forEach(bot => {
-          let robot = {
-            id: bot.id,
-            type: bot.type,
+          let data = {
             name: bot.name,
-            completedTasks: bot.completedTasks,
+            type: bot.type,
+            count: bot.completedTasks.length,
             time: bot.totalTime
           };
-          const robots = Object.assign([], this.state.robots);
-          robots.push(robot);
-          this.setState({ robots: robots });
+          arr.push(data);
+
+          this.setState({ data: arr });
         });
       });
-    console.log(this.state);
   }
 
   render() {
     return (
-      <BootstrapTable striped hover>
-        <TableHeaderColumn isKey dataField="id">
-          Robot Name
-        </TableHeaderColumn>
-        <TableHeaderColumn dataField="name">Robot Type</TableHeaderColumn>
-        <TableHeaderColumn dataField="price">Tasks Completed</TableHeaderColumn>
-        <TableHeaderColumn dataField="price">
-          Total Time Spent on Tasks
-        </TableHeaderColumn>
-      </BootstrapTable>
+      <Styles>
+        <BootstrapTable
+          className="table"
+          data={this.state.data}
+          options={{ noDataText: "No Robots Created" }}
+          scrollTop={"Bottom"}
+          striped
+          hover
+        >
+          <TableHeaderColumn isKey dataField="name">
+            Robot Name
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField="type">Robot Type</TableHeaderColumn>
+          <TableHeaderColumn dataField="count">
+            Tasks Completed
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField="time">
+            Total Time Spent on Tasks
+          </TableHeaderColumn>
+        </BootstrapTable>
+      </Styles>
     );
   }
 }
