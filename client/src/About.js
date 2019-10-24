@@ -28,21 +28,35 @@ class About extends Component {
       <Styles>
         <Jumbotron>
           <div className="div">
-            <ul className="ul">
-              <li>
-                <div>
-                  Images taken from{" "}
-                  <a href="https://www.pexels.com/">pexels.com</a>
-                </div>
-              </li>
-              <l1>
-                <div>
-                  <a href="https://documenter.getpostman.com/view/8888204/SVzxXeWs">
-                    API Documentation
-                  </a>
-                </div>
-              </l1>
-            </ul>
+            <h1>Description</h1>
+            <p>
+              This application allows a user to create a robot of one of seven
+              types from the Robots page. After creating a robot, the user can
+              then have that robot complete a set of tasks outlined in the My
+              Robots page. Each task has an estimated time to complete. At any
+              time, the user can navigate to the leaderboard page to see which
+              robots have completed the most tasks and which robots have spent
+              the most time doing tasks.
+            </p>
+            <h1>Other Information</h1>
+            <div>
+              Images taken from <a href="https://www.pexels.com/">pexels.com</a>
+            </div>
+
+            <div>
+              Click{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://documenter.getpostman.com/view/8888204/SVzxXeWs"
+              >
+                here
+              </a>{" "}
+              for API Documentation
+            </div>
+            <div>
+              Application created by Charles Schwartz (Last Edited: 10/24/2019)
+            </div>
           </div>
         </Jumbotron>
       </Styles>
