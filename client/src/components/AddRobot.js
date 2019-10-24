@@ -39,22 +39,34 @@ class AddRobot extends Component {
 
   async postRobot(event, type) {
     event.preventDefault();
-    this.generateId();
-    this.getToast(event, type);
-    const robot = {
-      type: type,
-      name: this.state.inputValue,
-      id: Robots.count
-    };
-    const headers = new Headers();
-    headers.append("Content-Type", "application/json");
-    const options = {
-      method: "POST",
-      headers,
-      body: JSON.stringify(robot)
-    };
-    await fetch("/api/myrobots", options);
+    if (this.state.inputValue != "") {
+      this.generateId();
+      this.getToast(event, type);
+      const robot = {
+        type: type,
+        name: this.state.inputValue,
+        id: Robots.count
+      };
+      const headers = new Headers();
+      headers.append("Content-Type", "application/json");
+      const options = {
+        method: "POST",
+        headers,
+        body: JSON.stringify(robot)
+      };
+      await fetch("/api/myrobots", options);
+      this.setState({ inputValue: "" });
+    } else {
+      toast(`Please name your robot!`, {
+        position: toast.POSITION.TOP_LEFT,
+        type: toast.TYPE.ERROR
+      });
+    }
   }
+
+  clearInput = () => {
+    this.nameField.reset();
+  };
 
   render() {
     return (
@@ -65,6 +77,8 @@ class AddRobot extends Component {
             onChange={event => {
               this.updateState(event);
             }}
+            value={this.state.inputValue}
+            ref="nameField"
             type="name"
             className="form-control"
             id="name"
