@@ -79,7 +79,7 @@ app.post("/api/myrobots", (req, res) => {
     type: req.body.type,
     completedTasks: [],
     totalTime: 0,
-    id: req.body.id
+    id: myRobots.length
   };
   myRobots.push(robot);
   res.send(robot);

@@ -25,12 +25,16 @@ class Leaderboard extends Component {
           this.setState({ empty: false });
         }
         let arr = [];
+
         json.forEach(bot => {
           let data = {
             name: bot.name,
             type: bot.type,
             count: bot.completedTasks.length,
-            time: bot.totalTime
+            time:
+              bot.totalTime === 1000
+                ? bot.totalTime / 1000 + " second"
+                : bot.totalTime / 1000 + " seconds"
           };
           arr.push(data);
 
