@@ -31,6 +31,8 @@ html-id; `npm i react-html-id`
 
 react-bootstrap-table; `npm install react-bootstrap-table --save`
 
+`npm i react-iframe`
+
 # To run entire application
 
 from root directory: npm run dev
