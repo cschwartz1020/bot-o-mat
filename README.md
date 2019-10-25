@@ -44,6 +44,11 @@ Front-End runs on http://localhost:5000
 
 Back-End runs on http://localhost:3000
 
+# Framework
+
+- React Front-End
+- Express Back-End
+
 # BOT-O-MAT
 
 Use any language to complete this challenge. The implementation is up to you: it can be a command-line application or have a graphical interface.
