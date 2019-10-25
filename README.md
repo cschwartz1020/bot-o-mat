@@ -1,59 +1,47 @@
+# macOS
+
 # To install all dependencies
 
-Install npm
+Make sure you have npm installed on your system
 run from root directory: `npm install`
 
 # Dependencies
 
-npm/npx (npx comes with npm)
+- npm/npx (npx comes with npm)
 
-concurrently; `npm i express concurrently`
+- concurrently; `npm i express concurrently`
 
-nodemon; `npm i nodemon --save-dev`
+- nodemon; `npm i nodemon --save-dev`
 
-create react app; `npm i create-react-app`
+- create react app; `npm i create-react-app`
 
-react-router-dom; `npm i react-router-dom`
+- react-router-dom; `npm i react-router-dom`
 
-nodemon; `npm install --save-dev nodemon`
+- nodemon; `npm install --save-dev nodemon`
 
-express.js; `npm install express --save`
+- express.js; `npm install express --save`
 
-bootstrap; `npm install react-bootstrap bootstrap`
+- bootstrap; `npm install react-bootstrap bootstrap`
 
-styled-components; `npm install --save styled-components`
+- styled-components; `npm install --save styled-components`
 
-react-sweet-progress: `npm i react-sweet-progress`
+- react-sweet-progress: `npm i react-sweet-progress`
 
-react-toastify; `npm i react-toastify`
+- react-toastify; `npm i react-toastify`
 
-html-id; `npm i react-html-id`
+- html-id; `npm i react-html-id`
 
-react-bootstrap-table; `npm install react-bootstrap-table --save`
-
-`npm i react-iframe`
+- react-bootstrap-table; `npm install react-bootstrap-table --save`
 
 # To run entire application
 
-from root directory: npm run dev
+from root directory: `npm run dev`
 
 Concurrently dependency allows us to run both React front-end and express server simultaneously with one command
 
-# Front-End
+Front-End runs on http://localhost:5000
 
-React
-
-Runs on localhost:5000
-
-To run front-end (from root directory): npm run client
-
-# Back-End Server
-
-Express
-
-Runs on localhost:3000
-
-To run back-end (from root directory): npm start
+Back-End runs on http://localhost:3000
 
 # BOT-O-MAT
 
