@@ -62,7 +62,6 @@ class MyRobots extends Component {
           this.setState({ robots: all });
         });
       });
-    console.log(this.state);
   }
 
   makeRenderDecision(type) {
