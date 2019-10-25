@@ -52,7 +52,7 @@ class Robots extends Component {
         <Styles>
           <Jumbotron>
             <Container>
-              <h1 className="header">Select a Robot!</h1>
+              <h1 className="header">Create a Robot!</h1>
               <ul>
                 {this.state.types.map(type => (
                   <Robot key={type} type={type} />

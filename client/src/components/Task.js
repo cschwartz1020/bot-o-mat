@@ -26,8 +26,7 @@ class Task extends Component {
     this.state = {
       description: "",
       eta: 0,
-      percent: 0,
-      renderProgress: true
+      percent: 0
     };
     this.handleTaskClick = this.handleTaskClick.bind(this);
   }

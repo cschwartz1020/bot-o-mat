@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
-import ReactDOM from "react-dom";
 
 class CustomProgressBar extends Component {
   constructor(props) {

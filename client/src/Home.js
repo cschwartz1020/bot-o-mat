@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import RobotParts from "./images/RobotParts.jpg";
-import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 const Styles = styled.div`

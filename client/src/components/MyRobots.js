@@ -4,7 +4,6 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import HappyRobot from "../images/HappyRobot.jpg";
 import MyRobot from "./MyRobot";
-import Tasks from "./Tasks";
 import uniqueId from "react-html-id";
 
 const Styles = styled.div`
@@ -68,7 +67,6 @@ class MyRobots extends Component {
 
   makeRenderDecision(type) {
     if (type.length !== 0) {
-      console.log("test");
       return (
         <div key={this.nextUniqueId()}>
           <h4 className="h">
@@ -98,7 +96,7 @@ class MyRobots extends Component {
         <Jumbotron>
           <Container>
             {this.state.empty ? (
-              <h1 className="h">Add Robots from the Robots Page !</h1>
+              <h1 className="h">Create Robots from the Robots Page !</h1>
             ) : (
               <div>
                 <h1 className="h">Your Robots !</h1>

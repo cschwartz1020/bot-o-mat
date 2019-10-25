@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Keyboard from "./images/Keyboard.jpg";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import Iframe from "react-iframe";
 
 const Styles = styled.div`
   .jumbotron {

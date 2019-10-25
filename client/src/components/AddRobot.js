@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import Robots from "./Robots";
 
 class AddRobot extends Component {
   constructor(props) {
@@ -8,12 +7,6 @@ class AddRobot extends Component {
     this.state = {
       inputValue: ""
     };
-  }
-  generateId() {
-    if (typeof Robots.count === "undefined") {
-      Robots.count = 0;
-    }
-    Robots.count = Robots.count + 1;
   }
 
   getToast(event, type) {
@@ -32,8 +25,7 @@ class AddRobot extends Component {
 
   async postRobot(event, type) {
     event.preventDefault();
-    if (this.state.inputValue != "") {
-      this.generateId();
+    if (this.state.inputValue !== "") {
       this.getToast(event, type);
       const robot = {
         type: type,
@@ -55,10 +47,6 @@ class AddRobot extends Component {
       });
     }
   }
-
-  clearInput = () => {
-    this.nameField.reset();
-  };
 
   render() {
     return (

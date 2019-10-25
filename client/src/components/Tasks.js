@@ -3,7 +3,6 @@ import Modal from "react-bootstrap/Modal";
 import styled from "styled-components";
 import Task from "./Task";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 
 const Styles = styled.div`
   .modal-dialog {
