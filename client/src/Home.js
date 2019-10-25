@@ -11,6 +11,7 @@ const Styles = styled.div`
     width: 100vw;
     background-size: cover;
     text-align: top;
+    overflow-y: scroll;
   }
   .header {
     color: #808080;

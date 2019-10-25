@@ -59,6 +59,7 @@ class MyRobots extends Component {
 
           const all = Object.assign({}, this.state.robots);
           all[bot.type].push(robot);
+
           this.setState({ robots: all });
         });
       });

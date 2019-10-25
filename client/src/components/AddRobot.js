@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import styled from "styled-components";
 import Robots from "./Robots";
-
-const Styles = styled.div`
-  .toast {
-    position: relative;
-  }
-`;
 
 class AddRobot extends Component {
   constructor(props) {
@@ -44,8 +37,7 @@ class AddRobot extends Component {
       this.getToast(event, type);
       const robot = {
         type: type,
-        name: this.state.inputValue,
-        id: Robots.count
+        name: this.state.inputValue
       };
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
