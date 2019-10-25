@@ -3,7 +3,8 @@
 # To install all dependencies
 
 Make sure you have npm installed on your system
-run from root directory: `npm install`
+
+- run from root directory: `npm install`
 
 # Dependencies
 
